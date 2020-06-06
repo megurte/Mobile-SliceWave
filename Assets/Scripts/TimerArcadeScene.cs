@@ -24,7 +24,7 @@ public class TimerArcadeScene : MonoBehaviour
             if(min != 0)
             {
                 min -= 1;
-                sec = 59;
+                sec = 60;
             }
             else
             {
