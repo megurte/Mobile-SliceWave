@@ -1,0 +1,41 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class GameManager : MonoBehaviour
+{
+    
+    public float PointCount = 0;
+    public Text TextCount;
+
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        TextCount.text = PointCount.ToString();
+
+        if (Input.touchCount > 0)
+        {
+            Touch touch = Input.GetTouch(0);
+            Ray ray = Camera.main.ScreenPointToRay(touch.position);
+            RaycastHit hitcol;
+
+            if (Physics.Raycast(ray, out hitcol))
+            {
+                if (hitcol.collider.CompareTag("GameCube"))
+                    hitcol.collider.gameObject.GetComponent<BlockBroke>().BoxDestroy();
+
+                if (hitcol.collider.CompareTag("RedGameCube"))
+                    hitcol.collider.gameObject.GetComponent<RedBlockBroke>().RedBoxDestroy();
+
+                if (hitcol.collider.CompareTag("RedGameCubeClassic"))               
+                    hitcol.collider.gameObject.GetComponent<ClassicModeRedBlock>().RedBoxDestroyClassicMode();
+            }
+        }
+    }
+}
