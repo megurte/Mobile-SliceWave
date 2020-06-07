@@ -9,12 +9,26 @@ public class TimerArcadeScene : MonoBehaviour
     public float min = 1;
     public float sec = 59;
     public Text TimerText;
+
     public GameObject timeleft;
     public GameObject Spawners;
 
+    GameObject gamemanager;
+
+    float Points;
+
+
+
+    private void Start()
+    {
+        gamemanager = GameObject.FindGameObjectWithTag("GM");
+    }
+
     void FixedUpdate()
     {
-        
+
+        Points = gamemanager.GetComponent<GameManager>().PointCount;
+
         if (sec >= 1)
         {
             sec -= Time.deltaTime;
@@ -31,6 +45,10 @@ public class TimerArcadeScene : MonoBehaviour
                 Debug.Log("Over");
                 timeleft.SetActive(true);            
                 Spawners.SetActive(false);
+
+                if (ResultClass.Inst.ArcadeResult < Points)
+                    ResultClass.Inst.ArcadeResult = Points;
+
                 Destroy(gameObject.GetComponent<TimerArcadeScene>());
             }
         }
