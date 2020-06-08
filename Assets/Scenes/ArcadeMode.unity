@@ -169,8 +169,8 @@ MonoBehaviour:
     type: 3}
   classicredboxprefab: {fileID: 4618096816588519142, guid: 699f635cc105e2049a1ddf3c88b71951,
     type: 3}
-  redtimer: 0
-  redcooldown: 0
+  pyroprefab: {fileID: 5867798134742270095, guid: 61f55d9dcf345c145a0c5245ca08cf0d,
+    type: 3}
   timer: 6
   cooldown: 10
   Selftransform: {fileID: 77123395}
@@ -594,8 +594,8 @@ MonoBehaviour:
     type: 3}
   classicredboxprefab: {fileID: 4618096816588519142, guid: 699f635cc105e2049a1ddf3c88b71951,
     type: 3}
-  redtimer: 0
-  redcooldown: 0
+  pyroprefab: {fileID: 5867798134742270095, guid: 61f55d9dcf345c145a0c5245ca08cf0d,
+    type: 3}
   timer: 1
   cooldown: 10
   Selftransform: {fileID: 208679323}
@@ -649,8 +649,8 @@ MonoBehaviour:
     type: 3}
   classicredboxprefab: {fileID: 4618096816588519142, guid: 699f635cc105e2049a1ddf3c88b71951,
     type: 3}
-  redtimer: 0
-  redcooldown: 0
+  pyroprefab: {fileID: 5867798134742270095, guid: 61f55d9dcf345c145a0c5245ca08cf0d,
+    type: 3}
   timer: 1
   cooldown: 4
   Selftransform: {fileID: 218421664}
@@ -704,8 +704,8 @@ MonoBehaviour:
     type: 3}
   classicredboxprefab: {fileID: 4618096816588519142, guid: 699f635cc105e2049a1ddf3c88b71951,
     type: 3}
-  redtimer: 0
-  redcooldown: 0
+  pyroprefab: {fileID: 5867798134742270095, guid: 61f55d9dcf345c145a0c5245ca08cf0d,
+    type: 3}
   timer: 3
   cooldown: 10
   Selftransform: {fileID: 447208760}
@@ -1370,8 +1370,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9cd5981e14b9c24191e90c5817e4b92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  min: 0
-  sec: 15
+  min: 1
+  sec: 59
   TimerText: {fileID: 942425440}
   timeleft: {fileID: 143002955}
   Spawners: {fileID: 1400611284}
@@ -1844,8 +1844,8 @@ MonoBehaviour:
     type: 3}
   classicredboxprefab: {fileID: 4618096816588519142, guid: 699f635cc105e2049a1ddf3c88b71951,
     type: 3}
-  redtimer: 0
-  redcooldown: 0
+  pyroprefab: {fileID: 5867798134742270095, guid: 61f55d9dcf345c145a0c5245ca08cf0d,
+    type: 3}
   timer: 1
   cooldown: 7
   Selftransform: {fileID: 1328019391}
@@ -2033,8 +2033,8 @@ MonoBehaviour:
     type: 3}
   classicredboxprefab: {fileID: 4618096816588519142, guid: 699f635cc105e2049a1ddf3c88b71951,
     type: 3}
-  redtimer: 0
-  redcooldown: 0
+  pyroprefab: {fileID: 5867798134742270095, guid: 61f55d9dcf345c145a0c5245ca08cf0d,
+    type: 3}
   timer: 0
   cooldown: 10
   Selftransform: {fileID: 1471411365}
@@ -2102,8 +2102,8 @@ MonoBehaviour:
     type: 3}
   classicredboxprefab: {fileID: 4618096816588519142, guid: 699f635cc105e2049a1ddf3c88b71951,
     type: 3}
-  redtimer: 0
-  redcooldown: 0
+  pyroprefab: {fileID: 5867798134742270095, guid: 61f55d9dcf345c145a0c5245ca08cf0d,
+    type: 3}
   timer: 0
   cooldown: 10
   Selftransform: {fileID: 2020178156}

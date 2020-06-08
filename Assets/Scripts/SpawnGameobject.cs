@@ -7,9 +7,11 @@ public class SpawnGameobject : MonoBehaviour
     public GameObject boxprefab;
     public GameObject redboxprefab;
     public GameObject classicredboxprefab;
+    public GameObject pyroprefab;
 
-    public float redtimer, redcooldown;
+    private float redtimer, redcooldown;
     public float timer, cooldown;
+    private float pyrotimer, pyrocooldown;
     [SerializeField]
     Transform Selftransform;
 
@@ -17,30 +19,31 @@ public class SpawnGameobject : MonoBehaviour
     bool IsClassicMode = false;
     private float RandomNum;
     private float RandomNum2;
+    private float RandomNum3;
 
     private void Start()
     {
-        RandomNum = Random.Range(5, 20);
+        RandomNum = Random.Range(7, 30);
         RandomNum2 = Random.Range(0, 10);
+        RandomNum3 = Random.Range(17, 100);
         redcooldown = RandomNum;
         redtimer = RandomNum - 1;
         timer = RandomNum2;
+        pyrotimer = RandomNum3;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //spawn
-        if (timer > 0)
-        {
-            timer -= Time.deltaTime;
-        }
-        if (timer <= 0)
-        {
-            Spawn();
-            timer = cooldown;
-        }
+        RedSpawn();
 
+        OtherObjSpawn();
+
+    }
+
+
+    void RedSpawn()
+    {
         //redspawn
         if (redtimer > 0)
         {
@@ -49,29 +52,43 @@ public class SpawnGameobject : MonoBehaviour
         if (redtimer < 0)
         {
             if (IsClassicMode)
-                ClassicModeRedSpawn();
+                SpawnGameObject(classicredboxprefab);
             else
-                RedSpawn();
+                SpawnGameObject(redboxprefab);
 
             redtimer = redcooldown;
         }
-
     }
 
-
-    void Spawn()
+    void OtherObjSpawn()
     {
-        Instantiate(boxprefab, Selftransform);
+        //spawnPyro
+        if (pyrotimer > 0)
+        {
+            pyrotimer -= Time.deltaTime;          
+        }
+        else
+        {
+            //Debug.Log("Spawned Pyro");
+            SpawnGameObject(pyroprefab);
+            pyrotimer = RandomNum3;
+        }
+
+        //spawnBOX
+        if (timer > 0)
+        {
+            timer -= Time.deltaTime;
+        }
+        if (timer <= 0)
+        {
+            SpawnGameObject(boxprefab);
+            timer = cooldown;
+        }
     }
 
-    void RedSpawn()
+    void SpawnGameObject(GameObject prefab)
     {
-        Instantiate(redboxprefab, Selftransform);
-    }
-
-    void ClassicModeRedSpawn()
-    {
-        Instantiate(classicredboxprefab, Selftransform);
+        Instantiate(prefab, Selftransform);
     }
 
 }

@@ -49,6 +49,10 @@ public class TimerArcadeScene : MonoBehaviour
                 if (ResultClass.Inst.ArcadeResult < Points)
                     ResultClass.Inst.ArcadeResult = Points;
 
+                //if(PlayerPrefs.GetFloat("ArcadeScore") < Points)
+                //    PlayerPrefs.SetFloat("ArcadeScore", Points);
+
+
                 Destroy(gameObject.GetComponent<TimerArcadeScene>());
             }
         }

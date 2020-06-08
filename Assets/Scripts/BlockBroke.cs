@@ -8,28 +8,7 @@ public class BlockBroke : MonoBehaviour
     public GameObject newpref;
     private GameObject gamemanager;
 
-    // Update is called once per frame
-    void Update()
-    {
-        ///somethig new. Touch testing
-        //if (Input.touchCount > 0)
-        //{
-        //    Touch touch = Input.GetTouch(0);
-        //    Ray ray = Camera.main.ScreenPointToRay(touch.position);
-        //    RaycastHit hit = new RaycastHit();
-
-        //        if(Physics.Raycast(ray, out hit))
-        //        {
-        //            Debug.Log("hit");
-        //            if (hit.collider.CompareTag("GameCube"))
-        //            {
-        //                BoxDestroy();
-        //                Debug.Log("hit2");
-        //            }
-        //        }
-        //}
-
-    }
+    public float Pointsamount;
 
 
     //OnMouseOver
@@ -42,7 +21,7 @@ public class BlockBroke : MonoBehaviour
         Destroy(gameObject.GetComponent<BoxCollider>());
         
         gamemanager = GameObject.FindGameObjectWithTag("GM");
-        gamemanager.GetComponent<GameManager>().PointCount += 1f;        
+        gamemanager.GetComponent<GameManager>().PointCount += Pointsamount;        
     }
 
     //private void OnMouseOver()
