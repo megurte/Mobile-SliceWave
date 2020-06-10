@@ -5,21 +5,40 @@ using UnityEngine.UI;
 
 public class LevelUp : MonoBehaviour
 {
-    public float exp;
-    public int levelCount;
+    public float Currentexp = 0;
+    private float Maxexp = 3;
+    public int levelCount = 1;
 
-    public Text leveltext;
     public Slider sliderexp;
     
-    // Start is called before the first frame update
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
+        gameObject.GetComponent<Text>().text = levelCount.ToString();
+        GetExp();
+    }
+
+
+    void GetExp()
+    {
+        
+        if (Currentexp < Maxexp)
+        {
+            Currentexp = Level.lvl.exp;
+            Debug.Log("Current exp: " + Currentexp);
+        }
+        else
+        {
+            Debug.Log("Passed");
+            Level.lvl.exp = Currentexp - Maxexp;
+            Maxexp = Maxexp * 3;
+            levelCount += 1;
+            
+        }
         
     }
 }
