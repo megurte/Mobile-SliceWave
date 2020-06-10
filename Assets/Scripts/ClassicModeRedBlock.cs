@@ -27,7 +27,9 @@ public class ClassicModeRedBlock : RedBlockBroke
         Debug.Log("Over");
         gameover.transform.Find("GameIsOver").gameObject.SetActive(true);
         Debug.Log(gameover.transform.Find("GameIsOver").gameObject.name);
-
+        
+        
+        //exp
         Level.lvl.exp += Points;
 
         if (ResultClass.Inst.ClassicResult < Points)

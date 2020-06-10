@@ -47,12 +47,9 @@ public class TimerArcadeScene : MonoBehaviour
                 Spawners.SetActive(false);
 
                 Level.lvl.exp += Points;
+
                 if (ResultClass.Inst.ArcadeResult < Points)
                     ResultClass.Inst.ArcadeResult = Points;
-
-                //if(PlayerPrefs.GetFloat("ArcadeScore") < Points)
-                //    PlayerPrefs.SetFloat("ArcadeScore", Points);
-
 
                 Destroy(gameObject.GetComponent<TimerArcadeScene>());
             }
