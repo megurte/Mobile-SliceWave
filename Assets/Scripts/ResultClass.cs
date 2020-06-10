@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-class ResultClass : MonoBehaviour
+class ResultClass
 {
     public static ResultClass Inst = new ResultClass();
 
@@ -11,3 +11,5 @@ class ResultClass : MonoBehaviour
     public float ArcadeResult = 0;
 
 }
+
+

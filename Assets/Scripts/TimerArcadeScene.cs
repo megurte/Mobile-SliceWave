@@ -46,6 +46,7 @@ public class TimerArcadeScene : MonoBehaviour
                 timeleft.SetActive(true);            
                 Spawners.SetActive(false);
 
+                Level.lvl.exp += Points;
                 if (ResultClass.Inst.ArcadeResult < Points)
                     ResultClass.Inst.ArcadeResult = Points;
 
