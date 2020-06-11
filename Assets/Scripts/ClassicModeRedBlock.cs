@@ -10,19 +10,18 @@ public class ClassicModeRedBlock : RedBlockBroke
     [SerializeField]
     private GameObject Spawners;
 
-    GameObject gamemanager;
     float Points;
 
     private void Start()
     {
         Spawners = GameObject.FindGameObjectWithTag("Spawners");
         gameover = GameObject.FindGameObjectWithTag("GameOver");
-        gamemanager = GameObject.FindGameObjectWithTag("GM");
+        gm = GameObject.FindGameObjectWithTag("GM");
     }
 
     public void ClassicGameOver()
     {
-        Points = gamemanager.GetComponent<GameManager>().PointCount;
+        Points = gm.GetComponent<GameManager>().PointCount;
 
         Debug.Log("Over");
         gameover.transform.Find("GameIsOver").gameObject.SetActive(true);

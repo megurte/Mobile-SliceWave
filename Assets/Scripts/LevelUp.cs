@@ -6,12 +6,12 @@ using UnityEngine.UI;
 public class LevelUp : MonoBehaviour
 {
     public float Currentexp = 0;
-    private float Maxexp = 10;
+    public float Maxexp = 10;
     public int levelCount = 1;
 
     public Image Bar;
     public GameObject LevelUpWindow;
-    //public float Fill;
+
     float Lerpspeed = 3.5f;
 
     void Start()
@@ -29,7 +29,7 @@ public class LevelUp : MonoBehaviour
             Maxexp = Level.lvl.MaxexpStat;
         }
         Debug.Log("Currentexp: "+Currentexp);
-        Debug.Log("Currentexp Stat: " + Level.lvl.currentexpStat);
+        Debug.Log("exp: " + Level.lvl.exp);
 
     }
 
@@ -43,8 +43,8 @@ public class LevelUp : MonoBehaviour
 
     void HandleBar()
     {
-        if (Currentexp / 100 != Bar.fillAmount)
-            Bar.fillAmount = Mathf.Lerp(Bar.fillAmount, Currentexp / 100, Time.deltaTime * Lerpspeed);
+        if (Currentexp / Maxexp != Bar.fillAmount)
+            Bar.fillAmount = Mathf.Lerp(Bar.fillAmount, Currentexp / Maxexp, Time.deltaTime * Lerpspeed);
     }
 
 
@@ -62,7 +62,8 @@ public class LevelUp : MonoBehaviour
             //Debug.Log("Passed");
             LevelUpWindow.SetActive(true);
 
-            Level.lvl.exp = Currentexp - Maxexp;
+            //Level.lvl.exp = Currentexp - Maxexp;
+            Currentexp = Currentexp - Maxexp;
             //max level
             Maxexp = Maxexp * 3;
             Level.lvl.MaxexpStat = Maxexp;

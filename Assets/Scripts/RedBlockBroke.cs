@@ -7,7 +7,7 @@ public class RedBlockBroke : BlockBroke
     public Color startcolor = new Vector4(1,1,1,0);
 
     MeshRenderer render;
-    GameObject gm;
+    public GameObject gm;
 
 
     public void GetMinus()

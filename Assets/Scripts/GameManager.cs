@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     
     public float PointCount = 0;
     public Text TextCount;
+    public GameObject TouchSlicer;
 
     void Start()
     {
@@ -24,6 +25,10 @@ public class GameManager : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(touch.position);
             RaycastHit hitcol;
 
+            TouchSlicer.SetActive(true);
+            //TouchSlicer.transform.position = Camera.main.ScreenToViewportPoint(touch.position);     
+            TouchSlicer.transform.position = Camera.main.ScreenToViewportPoint(touch.position);
+
             if (Physics.Raycast(ray, out hitcol))
             {
                 if (hitcol.collider.CompareTag("GameCube"))
@@ -35,6 +40,47 @@ public class GameManager : MonoBehaviour
                 if (hitcol.collider.CompareTag("RedGameCubeClassic"))               
                     hitcol.collider.gameObject.GetComponent<ClassicModeRedBlock>().RedBoxDestroyClassicMode();
             }
+
+        }
+        else
+        {
+            TouchSlicer.SetActive(false);
+
+        }
+    }
+
+
+    //textcode
+    void Swipe()
+    {
+        Vector2 delta = Input.GetTouch(0).deltaPosition;
+        
+        //horizontal
+        if(Mathf.Abs(delta.x)> Mathf.Abs(delta.y))
+        {
+            //x+
+            if (delta.x > 0)
+            {
+                
+            }
+
+            else
+            {
+
+            }
+        }
+        //vertical
+        else
+        {
+            if (delta.y > 0)
+            {
+
+            }
+            else
+            {
+
+            }
+
         }
     }
 }
