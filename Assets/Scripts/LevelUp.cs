@@ -28,9 +28,6 @@ public class LevelUp : MonoBehaviour
         {
             Maxexp = Level.lvl.MaxexpStat;
         }
-        Debug.Log("Currentexp: "+Currentexp);
-        Debug.Log("exp: " + Level.lvl.exp);
-
     }
 
     void Update()

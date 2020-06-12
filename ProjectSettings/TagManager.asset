@@ -10,6 +10,7 @@ TagManager:
   - RedGameCube
   - RedGameCubeClassic
   - GameOver
+  - Slicer
   layers:
   - Default
   - TransparentFX
