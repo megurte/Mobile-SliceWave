@@ -4,7 +4,6 @@ using System;
 
 public class Saving : MonoBehaviour
 {
-    public GameObject namePan;
 
     private Save sv = new Save();
     private string path;
@@ -12,41 +11,33 @@ public class Saving : MonoBehaviour
     private void Start()
     {
 
+#if UNITY_ANDROID && !UNITY_EDITOR
         path = Path.Combine(Application.persistentDataPath, "Save.json");
+#else
+        path = Path.Combine(Application.dataPath, "Save.json");
+#endif
 
+
+        //rewrite it 
         if (File.Exists(path))
         {
             sv = JsonUtility.FromJson<Save>(File.ReadAllText(path));
-            Debug.Log("Добро пожаловать: " + sv.name + "\nВаш возраст: " + sv.age);
+            Level.lvl.currentexpStat = sv.currentexpStat;
+            Level.lvl.MaxexpStat = sv.MaxexpStat;
+            Level.lvl.levelCountStat = sv.levelCountStat;
+            Debug.Log("Loaded");
         }
-        else namePan.SetActive(true);
+        else
+            Debug.Log("Saved");
     }
 
-    //public void CheckName(string name)
-    //{
-    //    if (!string.IsNullOrEmpty(name) && name.Length >= 3)
-    //    {
-    //        sv.name = name;
-    //        Debug.Log("Ваше имя: " + name);
-    //    }
-    //    else Debug.Log("Введите нормальное имя!");
-    //}
-    //public void CheckAge(string age)
-    //{
-    //    if (!string.IsNullOrEmpty(age) && age.Length > 0)
-    //    {
-    //        sv.age = int.Parse(age);
-    //        Debug.Log("Ваш возраст: " + age);
-    //    }
-    //    else Debug.Log("Введите нормальный возраст!");
-    //}
 
-    private void OnApplicationPause(bool pause)
+    public void OnApplicationPause(bool pause)
     {
         if (pause) File.WriteAllText(path, JsonUtility.ToJson(sv));
     }
 
-    private void OnApplicationQuit()
+    public void OnApplicationQuit()
     {
         File.WriteAllText(path, JsonUtility.ToJson(sv));
     }
@@ -58,7 +49,7 @@ public class Save
     public float MaxexpStat;
     public int levelCountStat;
 
-    Save()
+    public Save()
     {
         currentexpStat = Level.lvl.currentexpStat;
         MaxexpStat = Level.lvl.MaxexpStat;
