@@ -5,7 +5,7 @@ using System;
 public class Saving : MonoBehaviour
 {
 
-    private Save sv = new Save();
+    private Save save = new Save();
     private string path;
 
     private void Start()
@@ -16,41 +16,43 @@ public class Saving : MonoBehaviour
 #else
         path = Path.Combine(Application.dataPath, "Save.json");
 #endif
-        OnSave();
     }
 
     public void OnSave()
     {
-        //rewrite it 
-        if (File.Exists(path))
-        {
-            sv = JsonUtility.FromJson<Save>(File.ReadAllText(path));
-            Level.lvl.currentexpStat = sv.currentexpStat;
-            Level.lvl.MaxexpStat = sv.MaxexpStat;
-            Level.lvl.levelCountStat = sv.levelCountStat;
-            Debug.Log("Loaded");
-        }
-        else
-        {
-            sv.currentexpStat = Level.lvl.currentexpStat;
-            sv.MaxexpStat = Level.lvl.MaxexpStat;
-            sv.levelCountStat = Level.lvl.levelCountStat;
-            Debug.Log("Saved");
-        }
-           
+        File.WriteAllText(path, JsonUtility.ToJson(save));
+        save.currentexpStat = Level.lvl.currentexpStat;
+        save.MaxexpStat = Level.lvl.MaxexpStat;
+        save.levelCountStat = Level.lvl.levelCountStat;
     }
+
+    public void OnLoad()
+    {
+        string json = File.ReadAllText(path);
+        Save loadedplayerData = JsonUtility.FromJson<Save>(json);
+        Level.lvl.currentexpStat = save.currentexpStat;
+        Level.lvl.MaxexpStat = save.MaxexpStat;
+        Level.lvl.levelCountStat = save.levelCountStat;
+        Debug.Log("current exp: " + loadedplayerData.currentexpStat);
+        Debug.Log("level count: " + loadedplayerData.levelCountStat);
+    }
+
 
 
     public void OnApplicationPause(bool pause)
     {
-        if (pause) File.WriteAllText(path, JsonUtility.ToJson(sv));
+        if (pause) File.WriteAllText(path, JsonUtility.ToJson(save));
     }
 
     public void OnApplicationQuit()
     {
-        File.WriteAllText(path, JsonUtility.ToJson(sv));
+        File.WriteAllText(path, JsonUtility.ToJson(save));
     }
+
 }
+
+
+
 [Serializable]
 public class Save
 {
@@ -58,11 +60,13 @@ public class Save
     public float MaxexpStat;
     public int levelCountStat;
 
+    /*
     public Save()
     {
         currentexpStat = Level.lvl.currentexpStat;
         MaxexpStat = Level.lvl.MaxexpStat;
         levelCountStat = Level.lvl.levelCountStat;
     }
+    */
 }
 
