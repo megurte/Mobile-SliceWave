@@ -16,8 +16,11 @@ public class Saving : MonoBehaviour
 #else
         path = Path.Combine(Application.dataPath, "Save.json");
 #endif
+        OnSave();
+    }
 
-
+    public void OnSave()
+    {
         //rewrite it 
         if (File.Exists(path))
         {
@@ -28,7 +31,13 @@ public class Saving : MonoBehaviour
             Debug.Log("Loaded");
         }
         else
+        {
+            sv.currentexpStat = Level.lvl.currentexpStat;
+            sv.MaxexpStat = Level.lvl.MaxexpStat;
+            sv.levelCountStat = Level.lvl.levelCountStat;
             Debug.Log("Saved");
+        }
+           
     }
 
 

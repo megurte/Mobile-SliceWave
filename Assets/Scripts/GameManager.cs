@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     
     public float PointCount = 0;
     public Text TextCount;
-    public GameObject TouchSlicer;
+    private GameObject TouchSlicer;
 
     void Start()
     {

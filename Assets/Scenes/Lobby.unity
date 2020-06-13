@@ -1924,6 +1924,7 @@ GameObject:
   - component: {fileID: 1265796193}
   - component: {fileID: 1265796197}
   - component: {fileID: 1265796198}
+  - component: {fileID: 1265796199}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -2051,6 +2052,22 @@ MonoBehaviour:
   classicrecord: {fileID: 995677878}
   arcaderecord: {fileID: 1541773538}
   RecordPanel: {fileID: 876093473}
+--- !u!114 &1265796199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1265796192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b29030b7e59f6345a3aff82929dd21d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sv:
+    currentexpStat: 0
+    MaxexpStat: 3
+    levelCountStat: 0
 --- !u!1 &1276251939
 GameObject:
   m_ObjectHideFlags: 0
