@@ -25,7 +25,7 @@ public class Saving : MonoBehaviour
 
     public void OnSave()
     {
-        /*
+        
         if (File.Exists(path))
         {
 
@@ -38,8 +38,7 @@ public class Saving : MonoBehaviour
             save.levelCountStat = Level.lvl.levelCountStat;
             Debug.Log("Saved");
         }
-        */
-
+        
         File.WriteAllText(path, JsonUtility.ToJson(save));
         save.currentexpStat = Level.lvl.currentexpStat;
         save.MaxexpStat = Level.lvl.MaxexpStat;
@@ -50,9 +49,7 @@ public class Saving : MonoBehaviour
     {
         string json = File.ReadAllText(path);
         Save loadedplayerData = JsonUtility.FromJson<Save>(json);
-
-        Debug.Log("current exp: " + loadedplayerData.currentexpStat);
-        Debug.Log("level count: " + loadedplayerData.levelCountStat);
+  
     }
 
 
@@ -68,8 +65,6 @@ public class Saving : MonoBehaviour
     }
 
 }
-
-
 
 [Serializable]
 public class Save

@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     
     public float PointCount = 0;
     public Text TextCount;
-    private GameObject TouchSlicer;
+    public GameObject TouchSlicer;
 
     void Start()
     {
@@ -25,8 +25,8 @@ public class GameManager : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(touch.position);
             RaycastHit hitcol;
 
-            //TouchSlicer.SetActive(true);  
-            //TouchSlicer.transform.position = Camera.main.ScreenToViewportPoint(touch.position);
+            TouchSlicer.SetActive(true);  
+            TouchSlicer.transform.position = Camera.main.ScreenToViewportPoint(touch.position);
 
             if (Physics.Raycast(ray, out hitcol))
             {
@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            //TouchSlicer.SetActive(false);
+            TouchSlicer.SetActive(false);
 
         }
     }
