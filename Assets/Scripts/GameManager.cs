@@ -30,26 +30,13 @@ public class GameManager : MonoBehaviour
 
 
             TouchSlicer.SetActive(true);
-            //Vector2 touchposition = Camera.main.ScreenToViewportPoint(touch.position);
-            ////TouchSlicer.transform.position = touchposition  * speed;
+            Vector2 touchposition = Camera.main.ScreenToViewportPoint(touch.position);
+            TouchSlicer.transform.position = touchposition;
             //TouchSlicer.transform.position = Vector2.Lerp(TouchSlicer.transform.position, pos, Time.deltaTime * speed);
 
-
-            //switch (touch.phase)
-            //{
-            //    case TouchPhase.Began:
-            //        startPos = touch.position;
-            //        TouchSlicer.SetActive(true);
-            //        break;
-
-            //    case TouchPhase.Moved:
-            //        var dir = touch.position - startPos;
-            //        var pos = TouchSlicer.transform.position + new Vector3(TouchSlicer.transform.position.x, TouchSlicer.transform.position.y, dir.y);
-            //        TouchSlicer.transform.position = Vector3.Lerp(TouchSlicer.transform.position, pos, Time.deltaTime * speed);
-            //        break;
-            //}
-
-
+            
+            //Vector3 touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
+            //TouchSlicer.transform.position = touchPosition * speed;
 
 
             if (Physics.Raycast(ray, out hitcol))
