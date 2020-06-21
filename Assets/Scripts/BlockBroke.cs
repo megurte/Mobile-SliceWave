@@ -11,7 +11,7 @@ public class BlockBroke : MonoBehaviour
     public float Pointsamount;
 
 
-    //OnMouseOver
+    //OnMouseOver function
     public void BoxDestroy()
     {
         

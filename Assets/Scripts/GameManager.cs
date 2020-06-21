@@ -60,7 +60,7 @@ public class GameManager : MonoBehaviour
     }
 
 
-    //textcode
+    //testcode
     void Swipe()
     {
         Vector2 delta = Input.GetTouch(0).deltaPosition;
