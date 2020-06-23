@@ -10,7 +10,6 @@ public class Saving : MonoBehaviour
 
     private void Start()
     {
-        save.saving();
 #if UNITY_ANDROID && !UNITY_EDITOR
         path = Path.Combine(Application.persistentDataPath, "Save.json");
 #else
@@ -26,6 +25,9 @@ public class Saving : MonoBehaviour
 
     public void SavingToJson()
     {
+        save.currentexpStat = Level.lvl.currentexpStat;
+        save.MaxexpStat = Level.lvl.MaxexpStat;
+        save.levelCountStat = Level.lvl.levelCountStat;
         string json = JsonUtility.ToJson(save);
         Debug.Log("Saved");
     }
@@ -55,8 +57,11 @@ public class Saving : MonoBehaviour
 
     public void OnLoad()
     {
-        string json = File.ReadAllText(path);
-        save = JsonUtility.FromJson<Save>(json);
+        Level.lvl.currentexpStat= save.currentexpStat;
+        Level.lvl.MaxexpStat= save.MaxexpStat;
+        Level.lvl.levelCountStat= save.levelCountStat;
+        //string json = File.ReadAllText(path);
+        //save = JsonUtility.FromJson<Save>(json);
         Debug.Log("Loaded");
     }
 
@@ -82,12 +87,12 @@ public class Save
     public int levelCountStat;
 
 
-    public void saving()
-    {
-        currentexpStat = Level.lvl.currentexpStat;
-        MaxexpStat = Level.lvl.MaxexpStat;
-        levelCountStat = Level.lvl.levelCountStat;
-    }
+    //public void saving()
+    //{
+    //    currentexpStat = Level.lvl.currentexpStat;
+    //    MaxexpStat = Level.lvl.MaxexpStat;
+    //    levelCountStat = Level.lvl.levelCountStat;
+    //}
 
 }
 
