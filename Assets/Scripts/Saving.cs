@@ -17,33 +17,40 @@ public class Saving : MonoBehaviour
         path = Path.Combine(Application.dataPath, "Save.json");
 #endif
 
-        Level.lvl.currentexpStat = save.currentexpStat;
-        Level.lvl.MaxexpStat = save.MaxexpStat;
-        Level.lvl.levelCountStat = save.levelCountStat;
+        //Level.lvl.currentexpStat = save.currentexpStat;
+        //Level.lvl.MaxexpStat = save.MaxexpStat;
+        //Level.lvl.levelCountStat = save.levelCountStat;
 
     }
 
-    public void OnSave()
+
+    public void SavingToJson()
     {
-        
-        if (File.Exists(path))
-        {
 
-            Debug.Log("Loaded");
-        }
-        else
-        {
-            save.currentexpStat = Level.lvl.currentexpStat;
-            save.MaxexpStat = Level.lvl.MaxexpStat;
-            save.levelCountStat = Level.lvl.levelCountStat;
-            Debug.Log("Saved");
-        }
-        
-        File.WriteAllText(path, JsonUtility.ToJson(save));
-        save.currentexpStat = Level.lvl.currentexpStat;
-        save.MaxexpStat = Level.lvl.MaxexpStat;
-        save.levelCountStat = Level.lvl.levelCountStat;
     }
+
+
+    //public void OnSave()
+    //{
+        
+    //    if (File.Exists(path))
+    //    {
+
+    //        Debug.Log("Loaded");
+    //    }
+    //    else
+    //    {
+    //        save.currentexpStat = Level.lvl.currentexpStat;
+    //        save.MaxexpStat = Level.lvl.MaxexpStat;
+    //        save.levelCountStat = Level.lvl.levelCountStat;
+    //        Debug.Log("Saved");
+    //    }
+        
+    //    File.WriteAllText(path, JsonUtility.ToJson(save));
+    //    save.currentexpStat = Level.lvl.currentexpStat;
+    //    save.MaxexpStat = Level.lvl.MaxexpStat;
+    //    save.levelCountStat = Level.lvl.levelCountStat;
+    //}
 
     public void OnLoad()
     {
@@ -74,12 +81,12 @@ public class Save
     public int levelCountStat;
 
 
-    public Save()
-    {
-        currentexpStat = Level.lvl.currentexpStat;
-        MaxexpStat = Level.lvl.MaxexpStat;
-        levelCountStat = Level.lvl.levelCountStat;
-    }
+    ////public Save()
+    ////{
+    ////    currentexpStat = Level.lvl.currentexpStat;
+    ////    MaxexpStat = Level.lvl.MaxexpStat;
+    ////    levelCountStat = Level.lvl.levelCountStat;
+    ////}
 
 }
 
