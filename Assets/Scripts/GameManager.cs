@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     
     public float PointCount = 0;
     public Text TextCount;
-    public GameObject TouchSlicer;
+    //public GameObject TouchSlicer;
 
     private float speed = 10f;
     private Vector2 startPos;
@@ -29,9 +29,9 @@ public class GameManager : MonoBehaviour
             RaycastHit hitcol;
 
 
-            TouchSlicer.SetActive(true);
-            Vector2 touchposition = Camera.main.ScreenToViewportPoint(touch.position);
-            TouchSlicer.transform.position = touchposition;
+            //TouchSlicer.SetActive(true);
+            //Vector2 touchposition = Camera.main.ScreenToViewportPoint(touch.position);
+            //TouchSlicer.transform.position = touchposition;
             //TouchSlicer.transform.position = Vector2.Lerp(TouchSlicer.transform.position, pos, Time.deltaTime * speed);
 
             
@@ -52,11 +52,7 @@ public class GameManager : MonoBehaviour
             }
 
         }
-        else
-        {
-            TouchSlicer.SetActive(false);
 
-        }
     }
 
 
